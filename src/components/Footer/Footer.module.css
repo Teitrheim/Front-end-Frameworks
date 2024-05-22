@@ -5,9 +5,9 @@
 
     text-align: center;
     width: 100%;
-
+    font-size: 16px;
     box-sizing: border-box;
-
+    border-top: 1px solid #444;
     position: fixed;
 
     bottom: 0;

@@ -5,14 +5,16 @@ import styles from "./Header.module.css";
 const Header = () => {
   return (
     <header className={styles.navbar}>
-      <Link to="/" className={styles.navItem}>
-        Home
-      </Link>
-      <Link to="/contact" className={styles.navItem}>
-        Contact
-      </Link>
+      <div className={styles.navItems}>
+        <Link to="/" className={styles.navItem}>
+          Home
+        </Link>
+        <Link to="/contact" className={styles.navItem}>
+          Contact
+        </Link>
+      </div>
       <button className={styles.cartButton}>
-        Cart 🛒 <span className="badge">0</span>
+        Cart 🛒 <span className={styles.badge}>0</span>
       </button>
     </header>
   );
