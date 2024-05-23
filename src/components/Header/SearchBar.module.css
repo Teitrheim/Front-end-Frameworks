@@ -1,0 +1,15 @@
+.searchBar {
+    padding: 8px;
+    margin: 0 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .searchBar {
+        width: 100%;
+        margin: 10px 0;
+    }
+}
