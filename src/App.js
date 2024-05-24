@@ -9,14 +9,14 @@ import CheckoutPage from "./pages/CheckoutPage";
 import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
 import ContactPage from "./pages/ContactPage";
 import "./global.css";
+import CartIcon from "./components/CartIcon/CartIcon";
 
 function App() {
   return (
     <CartProvider>
-      {" "}
-      {}
       <Router>
         <Layout>
+          <CartIcon />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/product/:id" element={<ProductPage />} />

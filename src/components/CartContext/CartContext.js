@@ -11,9 +11,14 @@ export const CartProvider = ({ children }) => {
     setCartItems((currentItems) => [...currentItems, product]);
   };
 
+  const clearCart = () => {
+    setCartItems([]); // Clears all items in the cart
+  };
+
   const contextValue = {
     cartItems,
     addProductToCart,
+    clearCart,
   };
 
   return (

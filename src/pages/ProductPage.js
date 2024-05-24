@@ -32,7 +32,7 @@ const ProductPage = () => {
   const handleAddToCart = () => {
     if (product) {
       addProductToCart(product);
-      navigate("/cart");
+      navigate("/checkout");
     }
   };
 
