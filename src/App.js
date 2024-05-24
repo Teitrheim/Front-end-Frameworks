@@ -13,8 +13,6 @@ import "./global.css";
 function App() {
   return (
     <CartProvider>
-      {" "}
-      {}
       <Router>
         <Layout>
           <Routes>
