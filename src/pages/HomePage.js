@@ -1,42 +1,63 @@
-// Import necessary hooks and components
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // programmatically navigation
 import ProductCard from "../components/ProductCard/ProductCard";
+import styles from "./HomePage.module.css";
 
 const HomePage = () => {
-  // State for storing products and handling loading and errors
   const [products, setProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const navigate = useNavigate(); // Hook for navigation
 
-  // Function to fetch products from the API
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
         const response = await fetch("https://v2.api.noroff.dev/online-shop");
         const jsonResponse = await response.json();
-        setProducts(jsonResponse.data); // Set the products in state
+        setProducts(jsonResponse.data);
       } catch (err) {
-        setError(err.message); // Set error in state if any occurs
+        setError(err.message);
       } finally {
-        setLoading(false); // Ensure loading is false after the fetch operation
+        setLoading(false);
       }
     };
 
     fetchProducts();
-  }, []); // Empty dependency array means this effect runs only once after the component mounts
+  }, []);
 
-  // Render the HomePage component
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredProducts = searchTerm
+    ? products.filter((product) =>
+        product.title.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : products;
+
   return (
     <div>
-      <h1>Products</h1>
+      <h1 className={styles.title}>Products</h1>
+      <input
+        type="text"
+        placeholder="Search products..."
+        value={searchTerm}
+        onChange={handleSearchChange}
+        className={styles.searchBar}
+      />
       {loading && <p>Loading products...</p>}
       {error && <p>Error fetching products: {error}</p>}
-      <div
-        style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
-      >
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
+      <div className={styles.productsContainer}>
+        {filteredProducts.map((product) => (
+          <div
+            key={product.id}
+            onClick={() => navigate(`/product/${product.id}`)}
+            className={styles.productCard}
+          >
+            <ProductCard product={product} />
+          </div>
         ))}
       </div>
     </div>

@@ -1,0 +1,26 @@
+.title {
+    text-align: center;
+}
+
+.searchBar {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 8px;
+}
+
+.productsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.productCard {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.productCard:hover {
+    transform: scale(1.05);
+}
