@@ -3,7 +3,7 @@ import { useCart } from "../components/CartContext/CartContext";
 import styles from "./CheckoutPage.module.css";
 
 const CheckoutPage = () => {
-  const { cartItems } = useCart();
+  const { cartItems, clearCart } = useCart();
 
   // Calculate the total cost of items in the cart
   const total = cartItems.reduce(
@@ -39,6 +39,10 @@ const CheckoutPage = () => {
       >
         Checkout
       </button>
+      <button className={styles.clearCartButton} onClick={clearCart}>
+        Clear Cart
+      </button>{" "}
+      {}
     </div>
   );
 };
