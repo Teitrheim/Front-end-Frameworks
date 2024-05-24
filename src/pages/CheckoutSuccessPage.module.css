@@ -1,0 +1,21 @@
+.successPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.successPage h1 {
+    color: green;
+}
+
+.successPage p {
+    margin: 20px;
+}
+
+.successPage a {
+    color: blue;
+    text-decoration: none;
+    font-size: 20px;
+}
