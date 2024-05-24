@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CartIcon from "../CartIcon/CartIcon";
 import styles from "./Header.module.css";
 
 const Header = () => {
@@ -14,8 +13,6 @@ const Header = () => {
           Contact
         </Link>
       </div>
-
-      <CartIcon />
     </header>
   );
 };
