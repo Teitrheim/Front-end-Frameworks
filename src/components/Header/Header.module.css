@@ -32,23 +32,25 @@
 }
 
 .cartButton {
-    background: none;
+    background-color: #007bff;
+    color: white;
     border: none;
-    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 18px;
-    transition: color 0.3s;
+    display: flex;
+    align-items: center;
 }
 
 .cartButton:hover {
-    color: #4CAF50;
+    color: #0056b3;
 }
 
-.badge {
-    background-color: red;
-    color: white;
-    padding: 2px 6px;
-    font-size: 14px;
+.cartButton .badge {
+    background-color: #ffc107;
     border-radius: 50%;
-    margin-left: 5px;
+    padding: 5px 10px;
+    margin-left: 10px;
+    font-size: 0.8em;
+    color: black;
 }

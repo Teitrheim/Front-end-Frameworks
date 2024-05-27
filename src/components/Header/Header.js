@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
+import CartIcon from "../CartIcon/CartIcon";
 
 const Header = () => {
   return (
@@ -13,6 +14,7 @@ const Header = () => {
           Contact
         </Link>
       </div>
+      <CartIcon />
     </header>
   );
 };
