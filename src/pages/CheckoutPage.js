@@ -4,18 +4,26 @@ import { useCart } from "../components/CartContext/CartContext";
 import styles from "./CheckoutPage.module.css";
 
 const CheckoutPage = () => {
-  const { cartItems, clearCart } = useCart();
   const navigate = useNavigate();
+  const { cartItems, clearCart } = useCart();
 
+  // Calculate total price
   const total = cartItems.reduce(
     (acc, item) => acc + (item.discountedPrice || item.price),
     0
   );
 
+  // Handle checkout confirmation and clear cart
   const handleCheckout = () => {
+    // Example alert for demonstration
     alert("Proceeding to Checkout...");
     clearCart();
     navigate("/success");
+  };
+
+  const handleClearCart = () => {
+    clearCart();
+    navigate("/");
   };
 
   return (
@@ -40,6 +48,9 @@ const CheckoutPage = () => {
       </div>
       <button className={styles.checkoutButton} onClick={handleCheckout}>
         Checkout
+      </button>
+      <button className={styles.clearCartButton} onClick={handleClearCart}>
+        Clear Cart
       </button>
     </div>
   );

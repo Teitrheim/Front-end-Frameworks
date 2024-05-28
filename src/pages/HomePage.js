@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // programmatically navigation
+import { useNavigate } from "react-router-dom";
 import ProductCard from "../components/ProductCard/ProductCard";
 import styles from "./HomePage.module.css";
 
@@ -8,7 +8,7 @@ const HomePage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProducts = async () => {
