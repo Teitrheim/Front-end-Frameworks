@@ -5,25 +5,18 @@ import styles from "./CheckoutPage.module.css";
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
-  const { cartItems, clearCart } = useCart();
+  const { cartItems, clearCart, addProductToCart, removeProductFromCart } =
+    useCart();
 
-  // Calculate total price
   const total = cartItems.reduce(
-    (acc, item) => acc + (item.discountedPrice || item.price),
+    (acc, item) => acc + (item.discountedPrice || item.price) * item.quantity,
     0
   );
 
-  // Handle checkout confirmation and clear cart
   const handleCheckout = () => {
-    // Example alert for demonstration
     alert("Proceeding to Checkout...");
     clearCart();
     navigate("/success");
-  };
-
-  const handleClearCart = () => {
-    clearCart();
-    navigate("/");
   };
 
   return (
@@ -37,9 +30,25 @@ const CheckoutPage = () => {
             className={styles.productImage}
           />
           <div>
-            <h2>{item.title}</h2>
+            <h2>
+              {item.title} (x{item.quantity})
+            </h2>
             <p>{item.description}</p>
             <p>Price: ${item.discountedPrice || item.price}</p>
+            <div className={styles.quantityControls}>
+              <button
+                onClick={() => addProductToCart(item)}
+                className={styles.addButton}
+              >
+                +
+              </button>
+              <button
+                onClick={() => removeProductFromCart(item.id)}
+                className={styles.removeButton}
+              >
+                -
+              </button>
+            </div>
           </div>
         </div>
       ))}
@@ -49,7 +58,7 @@ const CheckoutPage = () => {
       <button className={styles.checkoutButton} onClick={handleCheckout}>
         Checkout
       </button>
-      <button className={styles.clearCartButton} onClick={handleClearCart}>
+      <button className={styles.clearCartButton} onClick={clearCart}>
         Clear Cart
       </button>
     </div>

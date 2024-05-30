@@ -8,16 +8,43 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
   const addProductToCart = (product) => {
-    setCartItems((currentItems) => [...currentItems, product]);
+    const productExists = cartItems.find((item) => item.id === product.id);
+    if (productExists) {
+      setCartItems(
+        cartItems.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+    }
+  };
+
+  const removeProductFromCart = (productId) => {
+    const productExists = cartItems.find((item) => item.id === productId);
+    if (productExists.quantity > 1) {
+      setCartItems(
+        cartItems.map((item) =>
+          item.id === productId
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+      );
+    } else {
+      setCartItems(cartItems.filter((item) => item.id !== productId));
+    }
   };
 
   const clearCart = () => {
-    setCartItems([]); // Clears all items in the cart
+    setCartItems([]);
   };
 
   const contextValue = {
     cartItems,
     addProductToCart,
+    removeProductFromCart,
     clearCart,
   };
 
