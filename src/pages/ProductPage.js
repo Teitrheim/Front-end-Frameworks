@@ -36,6 +36,15 @@ const ProductPage = () => {
     }
   };
 
+  const calculateDiscount = () => {
+    if (product && product.price && product.discountedPrice) {
+      const discount =
+        ((product.price - product.discountedPrice) / product.price) * 100;
+      return discount.toFixed(2); // Return the discount percentage rounded to two decimals
+    }
+    return 0; // Return 0 if no discount
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading product: {error}</p>;
   if (!product) return <p>Product not found!</p>;
@@ -50,9 +59,23 @@ const ProductPage = () => {
         <div className={styles.cardContainer}>
           <h2>{product.title}</h2>
           <p className={styles.price}>
-            ${product.discountedPrice || product.price}
+            Price: ${product.discountedPrice || product.price}
+            {product.discountedPrice < product.price && (
+              <span> (Save {calculateDiscount()}%)</span>
+            )}
           </p>
           <p className={styles.description}>{product.description}</p>
+          {product.reviews && product.reviews.length > 0 && (
+            <div>
+              <h3>Reviews</h3>
+              {product.reviews.map((review) => (
+                <div key={review.id}>
+                  <strong>{review.username}</strong> ({review.rating} stars):{" "}
+                  {review.description}
+                </div>
+              ))}
+            </div>
+          )}
           <button onClick={handleAddToCart} className={styles.addToCartBtn}>
             Add to Cart
           </button>
