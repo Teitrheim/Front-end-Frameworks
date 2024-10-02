@@ -1,70 +1,136 @@
-# Getting Started with Create React App
+# eCom Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Netlify-brightgreen)](https://guileless-puppy-75e10b.netlify.app/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/Teitrheim/Front-end-Frameworks.git)
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+The **eCom Store** is a fully-featured e-commerce application built using **React**. It allows users to browse products, add them to a cart, and complete a purchase with a streamlined checkout process. This project demonstrates the use of key frontend technologies, including **React Router** for page navigation and state management for handling cart operations.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Homepage**
+  Displays a list of all products with a look-ahead search bar that filters products dynamically as users type. Each product can be viewed in more detail on an individual product page.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Product Page**
+  Displays details about a specific product, including title, description, images, price, and discounts. Users can add items to the cart from here.
 
-### `npm test`
+- **Cart Page**
+  Lists all items added to the cart, including a summary of the total price. Users can proceed to checkout from this page.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Checkout Success Page**
+  Displays a success message once a purchase is completed and provides a link to return to the homepage. Clears the cart upon completion.
 
-### `npm run build`
+- **Contact Page**
+  Contains a form for users to contact the store. Includes full validation for all input fields.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Responsive Design**
+  Built with responsiveness in mind, ensuring compatibility with mobile, tablet, and desktop devices.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Frontend**: React, JavaScript
+- **Styling**: CSS, Bootstrap (optional)
+- **State Management**: React Hooks
+- **Routing**: React Router
 
-### `npm run eject`
+## Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Prerequisites
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Before running the project locally, ensure you have the following installed:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Node.js** (version 12.x or higher)
+- **npm** (Node Package Manager)
+- **Git**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Setup and Installation
 
-## Learn More
+1. **Clone the Repository**
+   Clone the repository to your local machine:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```sh
+   git clone https://github.com/Teitrheim/Front-end-Frameworks.git
+   cd Front-end-Frameworks
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. **Install Dependencies**
+   Navigate to the project directory and install the necessary dependencies:
 
-### Code Splitting
+   ```sh
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. **Run the Application**
+   Start the application locally using the following command:
 
-### Analyzing the Bundle Size
+```sh
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
 
-### Making a Progressive Web App
+4. **Build for Production**
+   To create a production build, run:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```sh
+npm run build
 
-### Advanced Configuration
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This will create a minified build of the project in the build folder.
 
-### Deployment
+Application Pages
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1. Homepage
+   Displays a list of all available products.
+   Includes a search bar that filters products as users type.
+   Products are displayed as cards, each linking to the Product Page.
+2. Product Page
+   Shows product details including:
+   Title and description
+   Images of the product
+   Price and Discount (if applicable)
+   Users can add products to the cart.
+3. Cart Page
+   Displays all products added to the cart.
+   Shows the total price of items in the cart.
+   Allows users to proceed to Checkout.
+4. Checkout Success Page
+   Displays a success message to confirm the user's order.
+   Includes a link to return to the Homepage.
+   The cart is cleared once the order is confirmed.
+5. Contact Page
+   Contains a contact form with fields for:
+   Full Name (min. 3 characters, required)
+   Subject (min. 3 characters, required)
+   Email (valid email format, required)
+   Message Body (min. 3 characters, required)
+   Form validation is implemented for all fields.
+   Testing Instructions
+   Instructions for Testers
+   Add to Cart and Checkout
+   Add multiple products to the cart, proceed to checkout, and ensure the cart is cleared after reaching the Checkout Success Page.
 
-### `npm run build` fails to minify
+Search and Filter
+Test the search functionality by entering different keywords and ensuring only matching products are displayed.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Form Validation
+Test the contact form by entering both valid and invalid data to confirm that validation rules are enforced.
+
+Responsive Design
+Test the application on different screen sizes to ensure that the layout adjusts appropriately.
+
+Contributing
+Contributions are welcome! If you'd like to improve the project, please follow these steps:
+
+Fork the repository.
+Create a new branch (git checkout -b feature-branch).
+Commit your changes (git commit -m 'Add some feature').
+Push to the branch (git push origin feature-branch).
+Open a Pull Request.
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Acknowledgments
+Special thanks to all contributors and testers who helped in developing this project.
+Images and assets are sourced from Unsplash, Pixabay, and Favicon.
