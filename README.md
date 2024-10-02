@@ -69,7 +69,7 @@ npm start
 
 ```
 
-4. **Build for Production**
+1. **Build for Production**
    To create a production build, run:
 
 ```sh
